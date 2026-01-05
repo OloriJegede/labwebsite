@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NEXT_PUBLIC_SANITY_PROJECT_ID="07vkv9dv"
+  NEXT_PUBLIC_SANITY_DATASET="production"
+  NEXT_PUBLIC_SUPABASE_URL = "=https://kwdqpdliwypgsswdvdua.supabase.co"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3ZHFwZGxpd3lwZ3Nzd2R2ZHVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1NTkxMjAsImV4cCI6MjA4MzEzNTEyMH0.LwQocJQGuKd5HlhbrHklx_JeTf2jc415bxvcdQyg1uA"
+
+# Redirects for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Development context
+[context.development]
+  command = "npm run dev"
+
+[context.development.environment]
+  NEXT_PUBLIC_SANITY_PROJECT_ID="07vkv9dv"
+  NEXT_PUBLIC_SANITY_DATASET="production"
+  NEXT_PUBLIC_SUPABASE_URL = "=https://kwdqpdliwypgsswdvdua.supabase.co"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3ZHFwZGxpd3lwZ3Nzd2R2ZHVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1NTkxMjAsImV4cCI6MjA4MzEzNTEyMH0.LwQocJQGuKd5HlhbrHklx_JeTf2jc415bxvcdQyg1uA"
+
+# Production context
+[context.production]
+  command = "npm run build"
+
+[context.production.environment]
+  NEXT_PUBLIC_SANITY_PROJECT_ID="07vkv9dv"
+  NEXT_PUBLIC_SANITY_DATASET="production"
+  NEXT_PUBLIC_SUPABASE_URL = "=https://kwdqpdliwypgsswdvdua.supabase.co"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3ZHFwZGxpd3lwZ3Nzd2R2ZHVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1NTkxMjAsImV4cCI6MjA4MzEzNTEyMH0.LwQocJQGuKd5HlhbrHklx_JeTf2jc415bxvcdQyg1uA"

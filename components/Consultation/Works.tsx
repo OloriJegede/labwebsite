@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Works = () => {
   return (
@@ -26,15 +27,17 @@ const Works = () => {
             <p> Lets create your personalized L.A.B. method.</p>
           </div>
           <div className="pt-10">
-            <Button className="bg-black text-white">
-              Book Your Consultation{" "}
-              <Image
-                src={`/white-arrow-right.svg`}
-                width={20}
-                height={20}
-                alt="arrow"
-              />
-            </Button>
+            <Link href="/booking">
+              <Button className="bg-black text-white">
+                Book Your Consultation{" "}
+                <Image
+                  src={`/white-arrow-right.svg`}
+                  width={20}
+                  height={20}
+                  alt="arrow"
+                />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

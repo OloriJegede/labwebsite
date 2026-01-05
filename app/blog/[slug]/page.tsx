@@ -85,7 +85,7 @@ const BlogPost = async ({ params }: PageProps) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
         {/* Sidebar */}
         <div className="md:col-span-1">
-          <div className="text-[#B3B3B3] text-[24px] gotham-regular">
+          <div className="text-[#B3B3B3] text-[24px] gotham-light">
             CATEGORIES
           </div>
           <div>

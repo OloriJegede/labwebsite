@@ -1,5 +1,5 @@
 import React from "react";
-import Posts from "@/components/Lifestyle/posts";
+import Posts from "@/components/Lifestyle/AllLifestylePosts";
 const page = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-0 pt-8">
