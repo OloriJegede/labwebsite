@@ -12,7 +12,7 @@
   NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3ZHFwZGxpd3lwZ3Nzd2R2ZHVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1NTkxMjAsImV4cCI6MjA4MzEzNTEyMH0.LwQocJQGuKd5HlhbrHklx_JeTf2jc415bxvcdQyg1uA"
   NEXT_PUBLIC_RESEND_API_KEY=re_LWsh9DY2_YqbwiFD6j2xA857QfCaPeqcu
 
-# Redirects for client-side routing
+# Redirects for client-side
 [[redirects]]
   from = "/*"
   to = "/index.html"
