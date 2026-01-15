@@ -13,7 +13,7 @@
   NEXT_PUBLIC_RESEND_API_KEY=re_LWsh9DY2_YqbwiFD6j2xA857QfCaPeqcu
   NEXT_PUBLIC_PAYPAL_CLIENT_ID="AWDMrJTEmpG1n7wm8OsaqS2y6iy_fMe09YLEPiuXKMCYr70coQ5vd3UjnPkhVUcoq1zOe7uWXS2egEfJ"
 
-# Redirects for client-side
+# Redirects for client-side environment
 [[redirects]]
   from = "/*"
   to = "/index.html"
