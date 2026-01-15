@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Search, Eye, Filter } from "lucide-react";
+import { Search, Eye } from "lucide-react";
 import Link from "next/link";
 import { supabaseClient } from "@/lib/supabaseClient";
 
