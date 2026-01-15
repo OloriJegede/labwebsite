@@ -7,6 +7,9 @@ import {
   Briefcase,
   CheckCircle,
   CreditCard,
+  Calendar,
+  Clock,
+  DollarSign,
 } from "lucide-react";
 import Link from "next/link";
 import { supabaseClient } from "@/lib/supabaseClient";
@@ -25,6 +28,7 @@ interface Consultation {
   readiness_score: number;
   payment_status: string;
   payment_amount?: string;
+  payment_id?: string;
   payment_date?: string;
   created_at: string;
   status: string;
@@ -40,22 +44,32 @@ interface Consultation {
   success_vision: string;
 }
 
+interface BookingSlot {
+  id: string;
+  booking_date: string;
+  start_time: string;
+  end_time: string;
+  duration_hours: number;
+  total_price: number;
+}
+
 const ConsultationDetail = () => {
   const router = useRouter();
   const params = useParams();
   const id = params?.id as string;
 
   const [consultation, setConsultation] = useState<Consultation | null>(null);
+  const [bookingSlots, setBookingSlots] = useState<BookingSlot[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (id) {
-      fetchConsultation();
+      fetchConsultationData();
     }
   }, [id]);
 
-  const fetchConsultation = async () => {
+  const fetchConsultationData = async () => {
     if (!id) {
       setError("Invalid consultation ID");
       setLoading(false);
@@ -79,25 +93,43 @@ const ConsultationDetail = () => {
         return;
       }
 
-      const { data, error } = await supabaseClient
-        .from("consultations")
-        .select("*")
-        .eq("id", id)
-        .single();
+      // Fetch consultation data
+      const { data: consultationData, error: consultationError } =
+        await supabaseClient
+          .from("consultations")
+          .select("*")
+          .eq("id", id)
+          .single();
 
-      if (error) {
-        console.error("Supabase error:", error);
-        throw new Error(error.message);
+      if (consultationError) {
+        console.error("Supabase error:", consultationError);
+        throw new Error(consultationError.message);
       }
 
-      if (!data) {
+      if (!consultationData) {
         throw new Error("Consultation not found");
       }
 
-      setConsultation(data);
+      setConsultation(consultationData);
+
+      // Fetch booking slots
+      const { data: slotsData, error: slotsError } = await supabaseClient
+        .from("consultation_bookings")
+        .select("*")
+        .eq("consultation_id", id)
+        .order("booking_date", { ascending: true })
+        .order("start_time", { ascending: true });
+
+      if (slotsError) {
+        console.error("Error fetching slots:", slotsError);
+      } else {
+        setBookingSlots(slotsData || []);
+      }
     } catch (error: unknown) {
       console.error("Error fetching consultation:", error);
-      setError(error instanceof Error ? error.message : "Failed to load consultation");
+      setError(
+        error instanceof Error ? error.message : "Failed to load consultation"
+      );
       toast.error("Failed to load consultation");
     } finally {
       setLoading(false);
@@ -131,6 +163,7 @@ const ConsultationDetail = () => {
 
   const getPaymentStatusColor = (status: string) => {
     switch (status) {
+      case "completed":
       case "paid":
         return "bg-green-100 text-green-800";
       case "pending":
@@ -140,6 +173,23 @@ const ConsultationDetail = () => {
       default:
         return "bg-gray-100 text-gray-800";
     }
+  };
+
+  const getTotalDuration = () => {
+    return bookingSlots.reduce((total, slot) => total + slot.duration_hours, 0);
+  };
+
+  const getTotalPrice = () => {
+    return bookingSlots.reduce((total, slot) => total + slot.total_price, 0);
+  };
+
+  const formatTime = (time: string) => {
+    // Convert 24h format to 12h format
+    const [hours, minutes] = time.split(":");
+    const hour = parseInt(hours);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    const displayHour = hour % 12 || 12;
+    return `${displayHour}:${minutes} ${ampm}`;
   };
 
   if (loading) {
@@ -212,6 +262,103 @@ const ConsultationDetail = () => {
         </div>
       </div>
 
+      {/* Booking Information - NEW SECTION */}
+      {bookingSlots.length > 0 && (
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-6 border-2 border-[#ECC5C0]">
+          <div className="flex items-center gap-2 mb-4">
+            <Calendar className="w-6 h-6 text-[#ECC5C0]" />
+            <h3 className="text-xl font-bold text-gray-800">Booking Details</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-2">
+                <Clock className="w-5 h-5 text-[#ECC5C0]" />
+                <span className="text-sm font-medium text-gray-700">
+                  Total Duration
+                </span>
+              </div>
+              <p className="text-2xl font-bold text-gray-900">
+                {getTotalDuration()} hour{getTotalDuration() !== 1 ? "s" : ""}
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-2">
+                <Calendar className="w-5 h-5 text-[#ECC5C0]" />
+                <span className="text-sm font-medium text-gray-700">
+                  Number of Slots
+                </span>
+              </div>
+              <p className="text-2xl font-bold text-gray-900">
+                {bookingSlots.length} slot{bookingSlots.length !== 1 ? "s" : ""}
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-2">
+                <DollarSign className="w-5 h-5 text-[#ECC5C0]" />
+                <span className="text-sm font-medium text-gray-700">
+                  Total Amount
+                </span>
+              </div>
+              <p className="text-2xl font-bold text-[#ECC5C0]">
+                ${getTotalPrice().toFixed(2)}
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <h4 className="font-semibold text-lg mb-3 text-gray-800">
+              Scheduled Time Slots:
+            </h4>
+            {bookingSlots.map((slot) => (
+              <div
+                key={slot.id}
+                className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-[#ECC5C0] transition-colors"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-5 h-5 text-[#ECC5C0]" />
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        {new Date(slot.booking_date).toLocaleDateString(
+                          "en-US",
+                          {
+                            weekday: "long",
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }
+                        )}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {formatTime(slot.start_time)} -{" "}
+                        {formatTime(slot.end_time)}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="text-right">
+                      <p className="text-sm text-gray-600">Duration</p>
+                      <p className="font-semibold text-gray-900">
+                        {slot.duration_hours}h
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm text-gray-600">Price</p>
+                      <p className="font-semibold text-[#ECC5C0]">
+                        ${slot.total_price.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Basic Information */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
@@ -233,7 +380,7 @@ const ConsultationDetail = () => {
               <span className="font-medium">{consultation.age}</span>
             </p>
             <p className="text-sm">
-              <span className="text-gray-600">Date:</span>{" "}
+              <span className="text-gray-600">Submitted:</span>{" "}
               <span className="font-medium">
                 {new Date(consultation.created_at).toLocaleDateString()}
               </span>
@@ -297,15 +444,15 @@ const ConsultationDetail = () => {
               <p className="text-sm">
                 <span className="text-gray-600">Amount:</span>{" "}
                 <span className="font-medium">
-                  {consultation.payment_amount}
+                  ${consultation.payment_amount}
                 </span>
               </p>
             )}
-            {consultation.payment_date && (
+            {consultation.payment_id && (
               <p className="text-sm">
-                <span className="text-gray-600">Date:</span>{" "}
-                <span className="font-medium">
-                  {new Date(consultation.payment_date).toLocaleDateString()}
+                <span className="text-gray-600">ID:</span>{" "}
+                <span className="font-medium text-xs break-all">
+                  {consultation.payment_id}
                 </span>
               </p>
             )}

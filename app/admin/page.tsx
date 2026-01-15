@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Calendar, Clock, Users } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import { supabaseClient } from "@/lib/supabaseClient";
 import Link from "next/link";
 
