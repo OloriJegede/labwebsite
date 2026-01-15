@@ -9,11 +9,10 @@ const LifestyleMostRead = () => {
         <div className="px-4 md:px-0 flex flex-col justify-center items-center md:w-[90%] mx-auto">
           <section className="space-y-4">
             <div className="text-[14px] text-center gotham-medium">
-              LIFESTYLE /{" "}
-              <span className="text-[#999999]">1 DECEMBER 2025</span>
+              LIFESTYLE
             </div>
             <div className="text-[40px] md:text-[64px] imbue leading-[100%] text-center ">
-              Wellness is a journey of small, intentional choices
+              Lifestyle is a journey of small, intentional choices
             </div>
             <div className="text-[18px] gotham-thin text-center md:text-left">
               Every choice matters. From the food we eat to the products we use,
@@ -21,7 +20,7 @@ const LifestyleMostRead = () => {
             </div>
             <div className="flex justify-center items-center">
               <Link href={`#`} className="text-[#C43670] text-[18px]">
-                Read more
+                Learn more
               </Link>
             </div>
           </section>

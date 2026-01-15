@@ -9,8 +9,7 @@ const BalanceDietMostRead = () => {
         <div className="flex flex-col justify-center items-center md:w-[90%] mx-auto">
           <section className="space-y-4">
             <div className="text-[14px] text-center gotham-medium">
-              BALANCE DIET/{" "}
-              <span className="text-[#999999]">1 DECEMBER 2025</span>
+              BALANCE DIET
             </div>
             <div className="text-[40px] md:text-[64px] imbue leading-[100%] text-center ">
               Nourishing your body is an act of self-love and mindful eating
@@ -21,7 +20,7 @@ const BalanceDietMostRead = () => {
             </div>
             <div className="flex justify-center items-center">
               <Link href={`#`} className="text-[#C43670] text-[18px]">
-                Read more
+                Learn more
               </Link>
             </div>
           </section>

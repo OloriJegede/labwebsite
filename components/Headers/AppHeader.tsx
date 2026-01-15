@@ -54,7 +54,7 @@ const AppHeader = () => {
                         : "text-[#808080]"
                     } hover:text-black text-[18px] flex items-center gap-1`}
                   >
-                    Categories
+                    Pillars
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"

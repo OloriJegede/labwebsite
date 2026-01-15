@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Consultation = () => {
   return (
-    <div className="py-20n px-4 md:px-0">
+    <div className="py-20n px-4 md:px-0 py-14">
       <div className="imbue-medium text-[40px] md:text-[56px] md:text-center">
         Book a Personalized Consultation
       </div>
@@ -12,16 +13,18 @@ const Consultation = () => {
         Get a tailored plan for your skin, hormones, diet, and lifestyle
       </div>
       <div className="flex md:justify-center pt-8">
-        <Button>
-          Book a consultation
-          <Image
-            src="/arrow-right.svg"
-            width={16}
-            height={16}
-            alt="arrow"
-            className=""
-          />
-        </Button>
+        <Link href="/consultation">
+          <Button>
+            Book a consultation
+            <Image
+              src="/arrow-right.svg"
+              width={16}
+              height={16}
+              alt="arrow"
+              className=""
+            />
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Community from "../Forms/Community";
+import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 const AppFooter = () => {
   return (
@@ -42,12 +43,33 @@ const AppFooter = () => {
               </div>
               <div className="space-y-3">
                 <div className="text-[#999999] text-[18px] capitalize">
-                  Conntect with us
+                  Connect with us
                 </div>
                 <section className="space-y-3">
-                  <div>
-                    <Link href="/" className="text-[14px]">
-                      Home
+                  <div className="flex gap-4">
+                    <Link
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      <Facebook className="w-6 h-6" />
+                    </Link>
+                    <Link
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      <Instagram className="w-6 h-6" />
+                    </Link>
+                    <Link
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      <Twitter className="w-6 h-6" />
                     </Link>
                   </div>
                 </section>

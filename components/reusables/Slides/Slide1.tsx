@@ -9,14 +9,14 @@ const Slide = () => {
           <h3 className="text-[#A90C50] text-[10px] md:text-[18px] gotham-medium">
             BALANCE DIET
           </h3>
-          <h2 className="text-[40px] md:text-[48px] imbue leading-[100%]">
+          <h2 className="text-[40px] md:text-[48px] imbue leading-[100%] my-2">
             Nourish to Flourish
           </h2>
           <p className="text-[14px] md:text-[18px] gotham-light mb-5">
             Practical, anti-aging nutrition that supports your hormones, build
             collagen and decrease inflammation.
           </p>
-          <Button size={`sm`}>
+          <Button>
             Explore guides{" "}
             <Image
               src="/arrow-right.svg"

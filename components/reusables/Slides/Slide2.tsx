@@ -9,13 +9,13 @@ const Slide = () => {
           <h3 className="text-[#A90C50] text-[10px] md:text-[18px] gotham-medium">
             LIFESTYLE
           </h3>
-          <h2 className="text-[40px] md:text-[48px] imbue leading-[100%]">
+          <h2 className="text-[40px] md:text-[48px] imbue leading-[100%] my-2">
             Anti-aging starts here
           </h2>
           <p className="text-[14px] md:text-[18px] gotham-light mb-5">
             Simple habits that strengthen your mind, mood, and daily wellbeing.
           </p>
-          <Button size={`sm`}>
+          <Button>
             Read more{" "}
             <Image
               src="/arrow-right.svg"

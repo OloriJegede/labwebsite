@@ -12,8 +12,7 @@ const AppearanceMostRead = () => {
         <div className="px-4 md:px-0 flex flex-col justify-center items-center md:w-[90%] mx-auto">
           <section className="space-y-4 py-10 md:py-0">
             <div className="text-[14px] text-center gotham-medium">
-              APPEARANCE/{" "}
-              <span className="text-[#999999]">1 DECEMBER 2025</span>
+              APPEARANCE
             </div>
             <div className="text-[40px] md:text-[64px] imbue leading-[100%] text-center ">
               Beauty is amplified by small, mindful steps
@@ -25,7 +24,7 @@ const AppearanceMostRead = () => {
             </div>
             <div className="flex justify-center items-center">
               <Link href={`#`} className="text-[#C43670] text-[18px]">
-                Read more
+                Learn more
               </Link>
             </div>
           </section>

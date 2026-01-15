@@ -18,8 +18,7 @@ const Radiance = () => {
         <div className="flex flex-col justify-center items-start px-10 md:px-20">
           <div className="py-10 md:px-0">
             <h3 className="text-[14px] md:text-[18px] gotham-thin">
-              APPEARANCE/{" "}
-              <span className="gotham-medium">30 NOVEMBER 2025</span>
+              APPEARANCE{" "}
             </h3>
             <h2 className="text-[40px] md:text-[64px] imbue">
               Radiance From Within
@@ -30,7 +29,7 @@ const Radiance = () => {
               enhance your natural glow.
             </p>
             <Button size={`lg`} className="text-white bg-transparent px-0">
-              Read more{" "}
+              Learn more{" "}
               <Image
                 src="/white-arrow-right.svg"
                 width={16}
