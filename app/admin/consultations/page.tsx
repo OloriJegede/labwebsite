@@ -14,7 +14,7 @@ interface Consultation {
   status: "pending" | "completed" | "scheduled";
   goals: string[];
   stress_level: string;
-  payment_status: "paid" | "pending" | "failed";
+  payment_status: string;
 }
 
 const ConsultationsPage = () => {
@@ -24,6 +24,7 @@ const ConsultationsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [consultations, setConsultations] = useState<Consultation[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchConsultations();
@@ -31,16 +32,26 @@ const ConsultationsPage = () => {
 
   const fetchConsultations = async () => {
     try {
-      const { data, error } = await supabaseClient
+      setLoading(true);
+      setError(null);
+
+      if (!supabaseClient) {
+        throw new Error("Supabase client not initialized");
+      }
+
+      const { data, error: fetchError } = await supabaseClient
         .from("consultations")
         .select("*")
         .order("created_at", { ascending: false });
 
-      if (error) throw error;
+      if (fetchError) throw fetchError;
 
       setConsultations(data || []);
-    } catch (error) {
-      console.error("Error fetching consultations:", error);
+    } catch (err) {
+      console.error("Error fetching consultations:", err);
+      setError(
+        err instanceof Error ? err.message : "Failed to load consultations"
+      );
     } finally {
       setLoading(false);
     }
@@ -69,6 +80,7 @@ const ConsultationsPage = () => {
 
   const getPaymentStatusColor = (status: string) => {
     switch (status) {
+      case "completed":
       case "paid":
         return "bg-green-100 text-green-800";
       case "pending":
@@ -90,13 +102,37 @@ const ConsultationsPage = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        Loading...
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#ECC5C0] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading consultations...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center max-w-md">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-red-800 mb-2">
+              Error Loading Data
+            </h3>
+            <p className="text-red-600 mb-4">{error}</p>
+            <button
+              onClick={fetchConsultations}
+              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="p-6">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">
         Consultation Management
       </h2>
@@ -142,47 +178,22 @@ const ConsultationsPage = () => {
               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ECC5C0] focus:border-transparent"
             />
           </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "all"
-                  ? "bg-[#ECC5C0] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setFilter("pending")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "pending"
-                  ? "bg-[#ECC5C0] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              Pending
-            </button>
-            <button
-              onClick={() => setFilter("scheduled")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "scheduled"
-                  ? "bg-[#ECC5C0] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              Scheduled
-            </button>
-            <button
-              onClick={() => setFilter("completed")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === "completed"
-                  ? "bg-[#ECC5C0] text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              Completed
-            </button>
+          <div className="flex gap-2 flex-wrap">
+            {(["all", "pending", "scheduled", "completed"] as const).map(
+              (status) => (
+                <button
+                  key={status}
+                  onClick={() => setFilter(status)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    filter === status
+                      ? "bg-[#ECC5C0] text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {status.charAt(0).toUpperCase() + status.slice(1)}
+                </button>
+              )
+            )}
           </div>
         </div>
       </div>
@@ -255,7 +266,7 @@ const ConsultationsPage = () => {
                   </td>
                   <td className="px-6 py-4">
                     <div className="text-sm text-gray-900 max-w-xs truncate">
-                      {consultation.goals.join(", ")}
+                      {consultation.goals?.join(", ") || "N/A"}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -268,7 +279,7 @@ const ConsultationsPage = () => {
                             : "text-green-600"
                       }`}
                     >
-                      {consultation.stress_level}
+                      {consultation.stress_level || "N/A"}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
