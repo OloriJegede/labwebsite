@@ -41,7 +41,7 @@ const Hero = () => {
         </div>
         <div className="md:col-span-3 pt-10 space-y-4">
           <Image
-            src={`/about-img.png`}
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550385/about-img_bazo1v.png`}
             width={735.05}
             height={877}
             alt="about us image"
