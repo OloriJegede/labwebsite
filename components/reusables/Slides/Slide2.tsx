@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../../ui/button";
+import Link from "next/link";
 const Slide = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-7 gap-3 md:h-[569px]">
@@ -15,16 +16,23 @@ const Slide = () => {
           <p className="text-[14px] md:text-[18px] gotham-light mb-5">
             Simple habits that strengthen your mind, mood, and daily wellbeing.
           </p>
-          <Button>
-            Read more{" "}
-            <Image
-              src="/arrow-right.svg"
-              width={16}
-              height={16}
-              alt="arrow"
-              className=""
-            />
-          </Button>
+          <div className="flex justify-start items-center space-x-3">
+            <Link href={`lifestyle`}>
+              <Button>
+                Read more{" "}
+                <Image
+                  src="/arrow-right.svg"
+                  width={16}
+                  height={16}
+                  alt="arrow"
+                  className=""
+                />
+              </Button>
+            </Link>
+            <Link href="#footer" className="underline">
+              Join our community
+            </Link>
+          </div>
         </div>
       </div>
       <div className="md:col-span-3">

@@ -6,7 +6,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 const AppFooter = () => {
   return (
-    <div className="bg-[#F3F3F3]">
+    <div className="bg-[#F3F3F3]" id="footer">
       <div className="max-w-7xl mx-auto px-4 md:px-0 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           <div className="">
@@ -20,22 +20,17 @@ const AppFooter = () => {
                     </Link>
                   </div>
                   <div>
-                    <Link href="/" className="text-[14px]">
+                    <Link href="/about" className="text-[14px]">
                       About
                     </Link>
                   </div>
                   <div>
-                    <Link href="/" className="text-[14px]">
-                      Shop
-                    </Link>
-                  </div>
-                  <div>
-                    <Link href="/" className="text-[14px]">
+                    <Link href="/consultation" className="text-[14px]">
                       Consultation
                     </Link>
                   </div>
                   <div>
-                    <Link href="/" className="text-[14px]">
+                    <Link href="/contact-us" className="text-[14px]">
                       Contact
                     </Link>
                   </div>

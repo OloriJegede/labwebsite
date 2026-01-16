@@ -12,7 +12,7 @@ const Cover = () => {
                 What we cover
               </div>
               <Image
-                src={`/cover-img.png`}
+                src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550384/cover-img_d0ckhm.png`}
                 width={459}
                 height={359}
                 alt="cover image"

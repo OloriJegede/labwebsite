@@ -9,7 +9,7 @@ const Works = () => {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
         <div className="md:col-span-3">
           <Image
-            src={`/consultation-img.png`}
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550384/consultation-img_jnhdlk.png`}
             width={729}
             height={624}
             alt="consultation image"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 const Radiance = () => {
@@ -28,16 +29,18 @@ const Radiance = () => {
               and soul. Discover clean, conscious products and practices that
               enhance your natural glow.
             </p>
-            <Button size={`lg`} className="text-white bg-transparent px-0">
-              Learn more{" "}
-              <Image
-                src="/white-arrow-right.svg"
-                width={16}
-                height={16}
-                alt="arrow"
-                className=""
-              />
-            </Button>
+            <Link href={`/appearance`}>
+              <Button size={`lg`} className="text-white bg-transparent px-0">
+                Learn more{" "}
+                <Image
+                  src="/white-arrow-right.svg"
+                  width={16}
+                  height={16}
+                  alt="arrow"
+                  className=""
+                />
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="hidden md:block">

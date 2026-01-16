@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../../ui/button";
+import Link from "next/link";
 const Slide = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-7 gap-3 md:h-[569px]">
@@ -16,16 +17,23 @@ const Slide = () => {
             Practical, anti-aging nutrition that supports your hormones, build
             collagen and decrease inflammation.
           </p>
-          <Button>
-            Explore guides{" "}
-            <Image
-              src="/arrow-right.svg"
-              width={16}
-              height={16}
-              alt="arrow"
-              className=""
-            />
-          </Button>
+          <div className="flex justify-start items-center space-x-3">
+            <Link href={`balance-diet`}>
+              <Button>
+                Explore guides{" "}
+                <Image
+                  src="/arrow-right.svg"
+                  width={16}
+                  height={16}
+                  alt="arrow"
+                  className=""
+                />
+              </Button>
+            </Link>
+            <Link href="#footer" className="underline">
+              Join our community
+            </Link>
+          </div>
         </div>
       </div>
       <div className="md:col-span-3">
