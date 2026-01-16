@@ -26,7 +26,12 @@ const BalanceDietMostRead = () => {
           </section>
         </div>
         <div>
-          <Image src={`/post3.png`} width={604} height={569} alt="most read" />
+          <Image
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550382/post3_bus9q9.png`}
+            width={604}
+            height={569}
+            alt="most read"
+          />
         </div>
       </div>
     </div>

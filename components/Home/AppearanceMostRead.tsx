@@ -7,7 +7,12 @@ const AppearanceMostRead = () => {
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 py-14">
         <div>
-          <Image src={`/post2.png`} width={604} height={569} alt="most read" />
+          <Image
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550385/post2_lqardr.png`}
+            width={604}
+            height={569}
+            alt="most read"
+          />
         </div>
         <div className="px-4 md:px-0 flex flex-col justify-center items-center md:w-[90%] mx-auto">
           <section className="space-y-4 py-10 md:py-0">

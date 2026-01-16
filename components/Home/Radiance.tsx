@@ -8,7 +8,7 @@ const Radiance = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 bg-black text-white">
         <div className="block md:hidden">
           <Image
-            src={`/within.png`}
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550396/within_scewk6.png`}
             width={756}
             height={688}
             alt="balance"

@@ -27,7 +27,7 @@ const LifestyleMostRead = () => {
         </div>
         <div>
           <Image
-            src={`/mostread.png`}
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550382/mostread_ed8jw2.png`}
             width={604}
             height={569}
             alt="most read"
