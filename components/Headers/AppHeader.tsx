@@ -36,7 +36,7 @@ const AppHeader = () => {
                 ? "https://res.cloudinary.com/dtci8qu00/image/upload/v1768559920/Wordmark_-_Black_l0huxy.png"
                 : `/logo.svg`
             }
-            width={isScrolled ? 600 : 102}
+            width={isScrolled ? 500 : 102}
             height={78.42}
             alt="logo"
             className="transition-all duration-300 ease-in-out"
