@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
@@ -14,6 +14,7 @@ import {
 
 const AppHeader = () => {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div>
@@ -30,11 +31,6 @@ const AppHeader = () => {
                 } hover:text-black text-[18px]`}
               >
                 Home
-              </div>
-            </Link>
-            <Link href="#">
-              <div className="text-[#808080] hover:text-black text-[18px]">
-                Shop
               </div>
             </Link>
             <Link href="/about">
@@ -108,10 +104,134 @@ const AppHeader = () => {
       </section>
       <section className="block md:hidden px-6 pt-10 pb-4">
         <div className="flex justify-between items-center">
-          <Image src={`/menu.svg`} width={22} height={24} alt="menu" />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <Image src={`/menu.svg`} width={22} height={24} alt="menu" />
+          </button>
           <Image src={`/logo.svg`} width={41} height={31.52} alt="logo" />
         </div>
       </section>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+
+          {/* Menu Panel */}
+          <div className="absolute top-0 left-0 h-full w-full bg-white shadow-xl">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex justify-between items-center px-6 pt-10 pb-6 border-b">
+                <Image src={`/logo.svg`} width={41} height={31.52} alt="logo" />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col px-6 py-6 space-y-6">
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div
+                    className={`${pathname === "/" ? "text-black font-semibold" : "text-[#808080]"} text-lg`}
+                  >
+                    Home
+                  </div>
+                </Link>
+
+                <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div
+                    className={`${pathname === "/about" ? "text-black font-semibold" : "text-[#808080]"} text-lg`}
+                  >
+                    About
+                  </div>
+                </Link>
+
+                <div className="space-y-3">
+                  <div className="text-black font-semibold text-lg">
+                    Pillars
+                  </div>
+                  <div className="pl-4 space-y-3">
+                    <Link
+                      href="/lifestyle"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div
+                        className={`${pathname.includes("/lifestyle") ? "text-black font-semibold" : "text-[#808080]"} text-base`}
+                      >
+                        Lifestyle
+                      </div>
+                    </Link>
+                    <Link
+                      href="/appearance"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div
+                        className={`${pathname.includes("/appearance") ? "text-black font-semibold" : "text-[#808080]"} text-base`}
+                      >
+                        Appearance
+                      </div>
+                    </Link>
+                    <Link
+                      href="/balance-diet"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div
+                        className={`${pathname.includes("/balance-diet") ? "text-black font-semibold" : "text-[#808080]"} text-base`}
+                      >
+                        Balance Diet
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                <Link
+                  href="/consultation"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div
+                    className={`${pathname === "/consultation" ? "text-black font-semibold" : "text-[#808080]"} text-lg`}
+                  >
+                    Consultation
+                  </div>
+                </Link>
+
+                <Link
+                  href="/contact-us"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div
+                    className={`${pathname === "/contact-us" ? "text-black font-semibold" : "text-[#808080]"} text-lg`}
+                  >
+                    Contact
+                  </div>
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
