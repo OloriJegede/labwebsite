@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
@@ -120,6 +121,11 @@ const AppHeader = () => {
                 Contact
               </div>
             </Link>
+            <Link href={`#footer`}>
+              <Button size={"lg"} className="bg-[#ECC5C0] text-black">
+                Subscribe
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -131,7 +137,20 @@ const AppHeader = () => {
           >
             <Image src={`/menu.svg`} width={22} height={24} alt="menu" />
           </button>
-          <Image src={`/logo.svg`} width={41} height={31.52} alt="logo" />
+          <div className="w-[90%] flex justify-center items-center transition-all duration-300 ease-in-out">
+            <Image
+              src={
+                isScrolled
+                  ? "https://res.cloudinary.com/dtci8qu00/image/upload/v1768559920/Wordmark_-_Black_l0huxy.png"
+                  : `/logo.svg`
+              }
+              width={isScrolled ? 300 : 41}
+              height={31}
+              alt="logo"
+              className="transition-all duration-300 ease-in-out"
+              priority
+            />
+          </div>
         </div>
       </section>
 
@@ -247,6 +266,11 @@ const AppHeader = () => {
                   >
                     Contact
                   </div>
+                </Link>
+                <Link href={`/home/#footer`}>
+                  <Button size={"lg"} className="bg-[#ECC5C0] text-black">
+                    Subscribe
+                  </Button>
                 </Link>
               </nav>
             </div>

@@ -29,9 +29,6 @@ const Slide = () => {
                 />
               </Button>
             </Link>
-            <Link href="#footer" className="underline">
-              Join our community
-            </Link>
           </div>
         </div>
       </div>

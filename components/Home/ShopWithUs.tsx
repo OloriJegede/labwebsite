@@ -5,9 +5,6 @@ const ShopWithUs = () => {
   return (
     <section className="py-24 px-4 md:px-0">
       <div className="md:pl-40">
-        <span className="text-[#808080] gotham-light text-[18px] border border-[#B3B3B3] rounded-full px-3 py-2 flex-wrap">
-          Shop with us
-        </span>
         <div className="text-[24px] gotham-light md:w-[330px] leading-[100%] my-5">
           Purposeful ingredients, perfected for quality.
         </div>
