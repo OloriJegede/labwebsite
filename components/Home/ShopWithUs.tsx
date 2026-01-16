@@ -16,7 +16,7 @@ const ShopWithUs = () => {
         <div>
           <div className="block md:hidden">
             <Image
-              src={`/mobile-showwith.png`}
+              src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550386/mobile-showwith_onxkr0.png`}
               width={660}
               height={366}
               alt="shop with us"
