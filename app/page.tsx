@@ -11,7 +11,7 @@ import LifestylePost from "@/components/Home/LifestyePost";
 import LifestyleMostRead from "@/components/Home/LifestyleMostRead";
 import Medicine from "@/components/Home/Medicine";
 import Radiance from "@/components/Home/Radiance";
-import ShopWithUs from "@/components/Home/ShopWithUs";
+// import ShopWithUs from "@/components/Home/ShopWithUs";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <BodyBalance />
       <Radiance />
       <Medicine />
-      <ShopWithUs />
+      {/* <ShopWithUs /> */}
       <LatestPost />
       <Consultation />
       <LifestylePost />

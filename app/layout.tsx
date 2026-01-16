@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import AppFooter from "@/components/Headers/AppFooter";
+import CommunityDialog from "@/components/Forms/CommunityDialog";
 
 export const metadata: Metadata = {
   title: "LAB Wellness | Transform Your Health & Appearance Naturally",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <ConditionalHeader />
         {children}
         <AppFooter />
+        <CommunityDialog />
       </body>
     </html>
   );
