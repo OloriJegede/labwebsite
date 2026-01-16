@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
@@ -15,12 +15,33 @@ import {
 const AppHeader = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div>
+    <div className="sticky top-0 z-40 bg-white">
       <section className="hidden md:block">
-        <div className="flex justify-center items-center pt-5">
-          <Image src={`/logo.svg`} width={102} height={78.42} alt="logo" />
+        <div className="flex justify-center items-center pt-5 transition-all duration-300 ease-in-out">
+          <Image
+            src={
+              isScrolled
+                ? "https://res.cloudinary.com/dtci8qu00/image/upload/v1768559920/Wordmark_-_Black_l0huxy.png"
+                : `/logo.svg`
+            }
+            width={isScrolled ? 600 : 102}
+            height={78.42}
+            alt="logo"
+            className="transition-all duration-300 ease-in-out"
+            priority
+          />
         </div>
         <div className="border-[0.5px] border-y-[#999999] py-3 mt-5">
           <div className="flex justify-center items-center space-x-8">
