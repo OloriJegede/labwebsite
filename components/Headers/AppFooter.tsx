@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Community from "../Forms/Community";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const AppFooter = () => {
   return (
@@ -43,15 +43,7 @@ const AppFooter = () => {
                 <section className="space-y-3">
                   <div className="flex gap-4">
                     <Link
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:opacity-70 transition-opacity"
-                    >
-                      <Facebook className="w-6 h-6" />
-                    </Link>
-                    <Link
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/l.a.b.method?igsh=eDMxcWpyeDg5cWxv"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:opacity-70 transition-opacity"
@@ -59,33 +51,50 @@ const AppFooter = () => {
                       <Instagram className="w-6 h-6" />
                     </Link>
                     <Link
-                      href="https://twitter.com"
+                      href="https://www.tiktok.com/@drsashawynter?_r=1&_t=ZS-92UwCCOnEYa"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:opacity-70 transition-opacity"
                     >
-                      <Twitter className="w-6 h-6" />
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href="https://youtube.com/@l.a.b.method?si=_C895jaA8D0nSaiy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      <Youtube className="w-6 h-6" />
                     </Link>
                   </div>
                 </section>
               </div>
               <div className="space-y-3">
-                <div className="text-[#999999] text-[18px]">Explore</div>
+                <div className="text-[#999999] text-[18px]">Support</div>
                 <section className="space-y-3">
                   <div>
-                    <Link href="/" className="text-[14px]">
+                    <p className="text-[14px]">
                       We are here to support you on your anti-aging journey.
-                    </Link>
+                    </p>
                   </div>
                   <div>
-                    <Link href="/" className="text-[14px]">
+                    <p className="text-[14px]">
                       Got questions about the L.A.B. Method, products, or
                       consultations?
-                    </Link>
+                    </p>
                   </div>
                   <div>
-                    <Link href="/" className="text-[14px]">
-                      info@labmethod.com
+                    <Link
+                      href="mailto:info@mylabmethod.com"
+                      className="text-[14px]"
+                    >
+                      info@mylabmethod.com
                     </Link>
                   </div>
                 </section>
