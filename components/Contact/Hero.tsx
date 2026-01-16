@@ -15,7 +15,7 @@ const Hero = () => {
             Got questions about the L.A.B. Method, products, or consultations?
           </p>
           <p className="text-[18px] gotham-regular">
-            Email: info@labmethod.com
+            Email: info@mylabmethod.com
           </p>
         </div>
         <div className="space-y-3">
