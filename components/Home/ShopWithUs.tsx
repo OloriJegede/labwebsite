@@ -41,7 +41,7 @@ const ShopWithUs = () => {
               Support your skin, hormones, energy, and confidence in one place.
             </div>
           </div>
-          <div className="pt-5 md:pt-0">
+          {/* <div className="pt-5 md:pt-0">
             <Image
               src={`/shopnow.svg`}
               width={78.64}
@@ -52,7 +52,7 @@ const ShopWithUs = () => {
             <div className="gotham-light text-[18px] underline mf:flex md:justify-center pt-3 md:pt-0">
               SHOP NOW
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
