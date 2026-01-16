@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 const Community = () => {
   return (
-    <div className="bg-black p-6 md:p-12 text-white space-y-5">
+    <div className="bg-black p-6 md:p-12 text-white space-y-5" id="community">
       <div className="text-[40px] md:text-[56px] imbue-medium leading-[100%]">
         Join the L.A.B. Community
       </div>
