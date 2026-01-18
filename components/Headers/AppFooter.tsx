@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Community from "../Forms/Community";
+import Community from "../Forms/CommunityTwo";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const AppFooter = () => {

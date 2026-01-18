@@ -80,13 +80,13 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
         strategy="lazyOnload"
       />
 
-      <div className="bg-white p-6 md:p-12 text-black space-y-5" id="community">
+      <div className="bg-black p-6 md:p-12 text-white space-y-5" id="community">
         {success ? (
           <div className="text-center py-8">
             <div className="text-[#ECC5C0] text-xl font-semibold mb-2">
               ✓ Successfully subscribed!
             </div>
-            <p className="text-gray-700">
+            <p className="text-gray-300">
               Thank you for joining our community. Check your email for updates.
             </p>
           </div>
@@ -108,7 +108,7 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
                 }
-                className="bg-white text-black border-black placeholder:text-gray-600"
+                className="bg-black text-white border-white placeholder:text-gray-400"
               />
               <Input
                 type="text"
@@ -118,7 +118,7 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
                 }
-                className="bg-white text-black border-black placeholder:text-gray-600"
+                className="bg-black text-white border-white placeholder:text-gray-400"
               />
               <Input
                 type="email"
@@ -128,14 +128,14 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="bg-white text-black border-black placeholder:text-gray-600"
+                className="bg-black text-white border-white placeholder:text-gray-400"
               />
               {error && <div className="text-red-400 text-sm">{error}</div>}
               <div className="pt-5">
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="hover:bg-black text-black bg-[#ECC5C0] w-full"
+                  className="hover:bg-white text-black bg-[#ECC5C0] w-full"
                 >
                   {loading ? "Subscribing..." : "Subscribe Now"}
                 </Button>

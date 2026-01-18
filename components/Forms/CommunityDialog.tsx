@@ -31,7 +31,7 @@ const CommunityDialog = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="">
+      <DialogContent className="[&>button]:text-black [&>button]:hover:text-black">
         <Community />
       </DialogContent>
     </Dialog>
