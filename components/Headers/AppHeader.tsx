@@ -137,20 +137,36 @@ const AppHeader = () => {
           >
             <Image src={`/menu.svg`} width={22} height={24} alt="menu" />
           </button>
-          <div className="w-[90%] flex justify-center items-center transition-all duration-300 ease-in-out">
+          <div className="flex justify-center items-center transition-all duration-300 ease-in-out">
             <Image
               src={
                 isScrolled
                   ? "https://res.cloudinary.com/dtci8qu00/image/upload/v1768559920/Wordmark_-_Black_l0huxy.png"
                   : `/logo.svg`
               }
-              width={isScrolled ? 300 : 41}
+              width={isScrolled ? 280 : 41}
               height={31}
               alt="logo"
               className="transition-all duration-300 ease-in-out"
               priority
             />
           </div>
+          <Link href="/#community" aria-label="Subscribe">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 7 10 7 10-7" />
+            </svg>
+          </Link>
         </div>
       </section>
 
