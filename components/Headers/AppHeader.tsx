@@ -283,11 +283,11 @@ const AppHeader = () => {
                     Contact
                   </div>
                 </Link>
-                <Link href={`/#footer`}>
+                {/* <Link href={`/#footer`}>
                   <Button size={"lg"} className="bg-[#ECC5C0] text-black">
                     Subscribe
                   </Button>
-                </Link>
+                </Link> */}
               </nav>
             </div>
           </div>

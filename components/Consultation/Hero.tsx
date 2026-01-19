@@ -12,18 +12,18 @@ const Hero = () => {
         </div>
         <div className="grid grid-cols-5">
           <div className="col-span-3">
-            <div className="imbue text-[168.97px] md:text-[483.98px] leading-[100%]">
+            <div className="imbue text-[160px] md:text-[483.98px] leading-[100%]">
               Feel
             </div>
           </div>
           <div className="col-span-2 pt-4  md:pt-18">
-            <div className="imbue text-[40.3px] md:text-[112px] leading-[100%]">
+            <div className="imbue text-[38.3px] md:text-[112px] leading-[100%]">
               Seen
             </div>
-            <div className="imbue text-[40.3px] md:text-[112px] leading-[100%]">
+            <div className="imbue text-[38.3px] md:text-[112px] leading-[100%]">
               Supported
             </div>
-            <div className="imbue text-[40.3px] md:text-[112px] leading-[100%]">
+            <div className="imbue text-[38.3px] md:text-[112px] leading-[100%]">
               Empowered
             </div>
           </div>
