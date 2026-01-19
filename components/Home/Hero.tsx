@@ -45,12 +45,12 @@ const Hero = () => {
           </CarouselItem>
           <CarouselItem className="basis-[387px] md:basis-[1283px]">
             <div className="p-1">
-              <SlideOne />
+              <SlideThree />
             </div>
           </CarouselItem>
           <CarouselItem className="basis-[387px] md:basis-[1283px]">
             <div className="p-1">
-              <SlideThree />
+              <SlideOne />
             </div>
           </CarouselItem>
         </CarouselContent>
