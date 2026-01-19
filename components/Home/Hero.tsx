@@ -40,12 +40,12 @@ const Hero = () => {
         <CarouselContent className="-ml-1">
           <CarouselItem className="basis-[387px] md:basis-[1283px]">
             <div className="p-1">
-              <SlideOne />
+              <SlideTwo />
             </div>
           </CarouselItem>
           <CarouselItem className="basis-[387px] md:basis-[1283px]">
             <div className="p-1">
-              <SlideTwo />
+              <SlideOne />
             </div>
           </CarouselItem>
           <CarouselItem className="basis-[387px] md:basis-[1283px]">
