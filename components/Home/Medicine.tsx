@@ -9,7 +9,7 @@ const Medicine = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 bg-black text-white">
         <div>
           <Image
-            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768550380/medicine_qb0nsu.png`}
+            src={`https://res.cloudinary.com/dtci8qu00/image/upload/v1768815346/image-balance_diet_oefszg.png`}
             width={756}
             height={688}
             alt="balance"
