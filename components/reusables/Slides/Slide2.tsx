@@ -36,7 +36,7 @@ const Slide = () => {
         <Image
           src="https://res.cloudinary.com/dtci8qu00/image/upload/v1768550378/heroA_wpwbse.png"
           width={604}
-          height={569}
+          height={469}
           className=""
           alt="hero1"
         />

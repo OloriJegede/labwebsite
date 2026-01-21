@@ -35,7 +35,7 @@ const Slide = () => {
       </div>
       <div className="md:col-span-3">
         <Image
-          src="https://res.cloudinary.com/dtci8qu00/image/upload/v1768550385/heroC_va4dvu.png"
+          src="https://res.cloudinary.com/dtci8qu00/image/upload/v1768991908/heroC_va4dvu.png"
           width={604}
           height={569}
           className=""

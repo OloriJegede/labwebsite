@@ -22,7 +22,7 @@ const buttonVariants = cva(
       },
       size: {
         default:
-          "h-[64px] px-6 bg-[#ECC5C0] text-black text-[16px] py-2 has-[>svg]:px-3",
+          "md:h-[64px] px-6 bg-[#ECC5C0] text-black text-[16px] py-2 has-[>svg]:px-3",
         sm: "h-10 gap-1.5 px-3 bg-[#ECC5C0] text-black has-[>svg]:px-2.5",
         lg: "h-10 px-6 has-[>svg]:px-4",
         icon: "size-9",
@@ -34,7 +34,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({

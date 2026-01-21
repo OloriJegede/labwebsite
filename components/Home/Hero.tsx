@@ -28,7 +28,7 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <div className="pt-10 pb-20">
+    <div className="md:pt-10 pb-20">
       <Carousel
         opts={{
           align: "center",
