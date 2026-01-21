@@ -22,12 +22,12 @@ const Medicine = () => {
               BALANCED DIET{" "}
             </h3>
             <h2 className="text-[40px] md:text-[64px] imbue">
-              Food as Medicine
+              Food to Slow Age
             </h2>
             <p className="text-[14px] md:text-[18px] mb-5">
-              Every meal is an opportunity to honor your body. We explore the
-              intersection of flavor and nutrition, creating dishes that satisfy
-              both your palate and your wellbeing.
+              Every meal is an opportunity to nourish your body from the inside.
+              We explore the best anti-aging food and supplements that backed by
+              science.
             </p>
             <Link href={`/balance-diet`}>
               <Button size={`lg`} className="text-white bg-transparent px-0">

@@ -22,12 +22,12 @@ const Radiance = () => {
               APPEARANCE{" "}
             </h3>
             <h2 className="text-[40px] md:text-[64px] imbue">
-              Radiance From Within
+              Vibrant From Within
             </h2>
             <p className="text-[14px] md:text-[18px] mb-5">
-              True beauty begins with self-care rituals that nurture your skin
-              and soul. Discover clean, conscious products and practices that
-              enhance your natural glow.
+              True anit-aging begins with self-care routines that nurture your
+              skin and soul. Discover clean, conscious products and practices
+              that enhance your natural glow.
             </p>
             <Link href={`/appearance`}>
               <Button size={`lg`} className="text-white bg-transparent px-0">
