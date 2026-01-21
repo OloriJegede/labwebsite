@@ -25,7 +25,7 @@ const Radiance = () => {
               Vibrant From Within
             </h2>
             <p className="text-[14px] md:text-[18px] mb-5">
-              True anit-aging begins with self-care routines that nurture your
+              True anti-aging begins with self-care routines that nurture your
               skin and soul. Discover clean, conscious products and practices
               that enhance your natural glow.
             </p>
