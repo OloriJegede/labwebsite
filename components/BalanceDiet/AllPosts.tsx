@@ -3,7 +3,7 @@ import Post from "../reusables/Post";
 import { Button } from "../ui/button";
 import { client } from "@/sanity/lib/client";
 
-// Define the GROQ query to fetch all balance diet posts
+// Define the GROQ query posts
 const POSTS_QUERY = `*[
   _type == "post" 
   && defined(slug.current)
@@ -35,7 +35,7 @@ const Posts = async () => {
 
   // Filter posts with missing required data
   const validPosts = posts.filter(
-    (post) => post.slug?.current && post.title && post.mainImage?.asset?.url
+    (post) => post.slug?.current && post.title && post.mainImage?.asset?.url,
   );
 
   return (
