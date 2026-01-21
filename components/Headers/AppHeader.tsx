@@ -129,7 +129,7 @@ const AppHeader = () => {
           </div>
         </div>
       </section>
-      <section className="block md:hidden px-6 md:pt-10 pb-4">
+      <section className="block md:hidden px-6 pt-3 pb-4">
         <div className="flex justify-between items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
