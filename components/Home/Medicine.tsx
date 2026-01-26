@@ -26,8 +26,8 @@ const Medicine = () => {
             </h2>
             <p className="text-[14px] md:text-[18px] mb-5">
               Every meal is an opportunity to nourish your body from the inside.
-              We explore the best anti-aging food and supplements that backed by
-              science.
+              We explore the best anti-aging food and supplements that are
+              backed by science.
             </p>
             <Link href={`/balance-diet`}>
               <Button size={`lg`} className="text-white bg-transparent px-0">

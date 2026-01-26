@@ -162,6 +162,18 @@ const BlogPost = async ({ params }: PageProps) => {
                     </h3>
                   ),
                 },
+                marks: {
+                  link: ({ children, value }) => (
+                    <a
+                      href={value.href}
+                      className="text-[#A90C50] underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {children}
+                    </a>
+                  ),
+                },
               }}
             />
           </div>
