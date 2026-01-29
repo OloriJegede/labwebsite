@@ -26,24 +26,15 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
 
     try {
       // Submit to Klaviyo
-      const response = await fetch(
-        `https://a.klaviyo.com/api/v2/list/VfSuHW/subscribe?pk_52d3bdbeffd230f272663fe1099b7e1bd4`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            profiles: [
-              {
-                email: formData.email,
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-              },
-            ],
-          }),
-        },
-      );
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to subscribe");

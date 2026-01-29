@@ -25,28 +25,21 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
     setError("");
 
     try {
-      // Submit to Klaviyo
-      const response = await fetch(
-        `https://a.klaviyo.com/api/v2/list/VfSuHW/subscribe?pk_52d3bdbeffd230f272663fe1099b7e1bd4`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            profiles: [
-              {
-                email: formData.email,
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-              },
-            ],
-          }),
-        },
-      );
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+        }),
+      });
+
+      const data = await response.json(); // <--- Parse the response
 
       if (!response.ok) {
-        throw new Error("Failed to subscribe");
+        // Use the actual error from the server
+        throw new Error(data.error || "Server failed to subscribe");
       }
 
       setSuccess(true);
@@ -76,7 +69,7 @@ const Community = ({ onSuccess }: CommunityProps = {}) => {
   return (
     <>
       <Script
-        src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID}`}
+        src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WmEjJb`}
         strategy="lazyOnload"
       />
 
