@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 const GA_MEASUREMENT_ID = "G-2ZPH9EZY1S";
@@ -15,7 +15,6 @@ declare global {
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const isAdminRoute = pathname?.startsWith("/admin") ?? false;
 
   useEffect(() => {
@@ -23,13 +22,13 @@ export default function GoogleAnalytics() {
       return;
     }
 
-    const query = searchParams?.toString();
-    const pagePath = query ? `${pathname}?${query}` : pathname;
+    const query = window.location.search;
+    const pagePath = query ? `${pathname}${query}` : pathname;
 
     window.gtag("config", GA_MEASUREMENT_ID, {
       page_path: pagePath,
     });
-  }, [isAdminRoute, pathname, searchParams]);
+  }, [isAdminRoute, pathname]);
 
   if (isAdminRoute) {
     return null;
