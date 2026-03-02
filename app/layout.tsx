@@ -3,6 +3,7 @@ import "./globals.css";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import AppFooter from "@/components/Headers/AppFooter";
 import CommunityDialog from "@/components/Forms/CommunityDialog";
+import GoogleAnalytics from "@/components/Analytics/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "LAB Wellness | Transform Your Health & Appearance Naturally",
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={``}>
+        <GoogleAnalytics />
         <ConditionalHeader />
         {children}
         <AppFooter />
