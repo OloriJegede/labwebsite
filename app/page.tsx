@@ -13,6 +13,8 @@ import Medicine from "@/components/Home/Medicine";
 import Radiance from "@/components/Home/Radiance";
 // import ShopWithUs from "@/components/Home/ShopWithUs";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <div>

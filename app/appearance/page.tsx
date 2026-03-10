@@ -1,5 +1,7 @@
 import React from "react";
 import Posts from "@/components/Appearance/AllPosts";
+
+export const revalidate = 60;
 const page = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-0 pt-8">

@@ -30,6 +30,9 @@ const CATEGORIES_QUERY = `*[_type == "category"]{
   slug
 }`;
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -128,7 +131,7 @@ const BlogPost = async ({ params }: PageProps) => {
           <section className="space-y-2 pt-6">
             {post.author && (
               <div className="text-[#666666] text-[16px]">
-                Posted by {post.author}
+                Written by {post.author}
               </div>
             )}
             {formattedDate && (
