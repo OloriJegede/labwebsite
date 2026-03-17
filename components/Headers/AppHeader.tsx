@@ -98,7 +98,7 @@ const AppHeader = () => {
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link href={`/balance-diet`}>Balance Diet</Link>
+                    <Link href={`/balance-diet`}>Balanced Diet</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -256,7 +256,7 @@ const AppHeader = () => {
                       <div
                         className={`${pathname.includes("/balance-diet") ? "text-black font-semibold" : "text-[#808080]"} text-base`}
                       >
-                        Balance Diet
+                        Balanced Diet
                       </div>
                     </Link>
                   </div>

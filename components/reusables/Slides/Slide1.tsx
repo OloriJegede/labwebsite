@@ -8,7 +8,7 @@ const Slide = () => {
       <div className="md:col-span-4 flex flex-col justify-center items-start ">
         <div className="w-4/5">
           <h3 className="text-[#A90C50] text-[10px] md:text-[18px] gotham-medium">
-            BALANCE DIET
+            BALANCED DIET
           </h3>
           <h2 className="text-[40px] md:text-[48px] imbue leading-[100%] my-2">
             Nourish to Flourish

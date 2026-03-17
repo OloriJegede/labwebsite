@@ -7,7 +7,7 @@ import { client } from "@/sanity/lib/client";
 const POSTS_QUERY = `*[
   _type == "post" 
   && defined(slug.current)
-  && "balance-diet" in categories[]->slug.current
+  && "balanced-diet" in categories[]->slug.current
 ]|order(publishedAt desc){
   _id, 
   title, 
