@@ -45,7 +45,7 @@ const Posts = async () => {
           <Post
             key={post._id}
             image={post.mainImage!.asset!.url!}
-            category={post.category || "Balance Diet"}
+            category={post.category || "Balanced Diet"}
             date={
               post.publishedAt
                 ? new Date(post.publishedAt).toLocaleDateString("en-GB", {
@@ -66,7 +66,7 @@ const Posts = async () => {
       </div>
       {validPosts.length === 0 && (
         <div className="text-center text-gray-500 py-8">
-          No balance diet posts available yet.
+          No balanced diet posts available yet.
         </div>
       )}
       {validPosts.length > 0 && (

@@ -9,7 +9,7 @@ const BalanceDietMostRead = () => {
         <div className="flex flex-col justify-center items-center md:w-[90%] mx-auto">
           <section className="space-y-4">
             <div className="text-[14px] text-center gotham-medium">
-              BALANCE DIET
+              BALANCED DIET
             </div>
             <div className="text-[40px] md:text-[64px] imbue leading-[100%] text-center ">
               Nourishing your body is an act of self-love and mindful eating

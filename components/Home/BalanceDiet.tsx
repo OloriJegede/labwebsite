@@ -40,13 +40,13 @@ const BalanceDietPost = async () => {
   return (
     <div className="bg-[#F9F9F9] px-4 md:px-0">
       <section className="max-w-7xl mx-auto py-14">
-        <div className="text-[24px] md:text-center mb-6">BALANCE DIET</div>
+        <div className="text-[24px] md:text-center mb-6">BALANCED DIET</div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {validPosts.map((post) => (
             <Post
               key={post._id}
               image={post.mainImage!.asset!.url!}
-              category={post.category || "Balance Diet"}
+              category={post.category || "Balanced Diet"}
               date={
                 post.publishedAt
                   ? new Date(post.publishedAt).toLocaleDateString("en-GB", {
@@ -67,7 +67,7 @@ const BalanceDietPost = async () => {
         </div>
         {validPosts.length === 0 && (
           <div className="text-center text-gray-500 py-8">
-            No balance diet posts available yet.
+            No balanced diet posts available yet.
           </div>
         )}
       </section>
