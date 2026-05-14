@@ -55,6 +55,11 @@ const AppHeader = () => {
                 Home
               </div>
             </Link>
+             <a href="https://labskin.mylabmethod.com">
+              <div className="text-[#808080] hover:text-black text-[18px]">
+                Shop
+              </div>
+            </a>
             <Link href="/about">
               <div className="text-[#808080] hover:text-black text-[18px]">
                 About
@@ -215,6 +220,11 @@ const AppHeader = () => {
                     Home
                   </div>
                 </Link>
+                 <a href="https://labskin.mylabmethod.com" onClick={() => setIsMobileMenuOpen(false)}>
+              <div className="text-[#808080] hover:text-black text-[18px]">
+                Shop
+              </div>
+            </a>
 
                 <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>
                   <div
